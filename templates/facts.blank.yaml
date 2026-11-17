@@ -1,0 +1,51 @@
+# 空白事实主数据表 —— 复制改名 facts.yaml 后填写
+# 生成: python generate.py --facts facts.yaml --out output
+# 方法论来源: https://seogeo.cc/ai-knowledge-base
+
+entity:
+  name: "你的品牌名"                 # 品牌名，全站一致
+  legal_name: "工商/法定主体名"       # 可选
+  homepage: "https://your-domain.com"
+  at_id: "https://your-domain.com/#organization"   # 全站唯一，勿加语言后缀
+  description: "一句话说清你是谁、做什么"
+  same_as:                          # 只放官方账号/官方页面，不混入第三方文章
+    - "https://your-domain.com"
+
+knowledge_base:
+  title: "品牌名：一句话主题知识库"
+  intro: >-
+    人读得懂、AI 方便按板块提取的简介。说清这页覆盖什么、给谁看。
+  sections:
+    - id: who                       # 锚点 id，用于 llms.txt
+      heading: "是谁"
+      summary: "一句话板块摘要，供 AI 快速定位"
+      blocks:
+        - type: prose
+          text: "结论前置的正文段落。"
+
+    - id: services
+      heading: "服务 / 产品参数"
+      summary: "价格、方案、适用人群"
+      blocks:
+        - type: table
+          headers: ["方案", "价格", "适用人群"]
+          rows:
+            - ["基础版", "¥___", "___"]
+            - ["进阶版", "¥___", "___"]
+
+    - id: faq
+      heading: "常见问题解答"
+      summary: "高频问答，答案结论前置"
+      blocks:
+        - type: faqs
+          items:
+            - q: "用户会怎么问？（用问句）"
+              a: "第一句就给结论，再补理由。不要以「首先/其实」开头。"
+
+related_links:
+  - title: "官方页面 A"
+    url: "https://your-domain.com/page-a"
+  - title: "官方页面 B"
+    url: "https://your-domain.com/page-b"
+
+source_url: "https://seogeo.cc/ai-knowledge-base"   # 方法论来源，生成器写入产物头部

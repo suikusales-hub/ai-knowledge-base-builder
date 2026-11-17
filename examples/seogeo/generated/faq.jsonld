@@ -1,0 +1,31 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://seogeo.cc/#organization#faq",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "工厂不懂营销、只懂工艺，能学 GEO 吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "能，而且工厂往往更有「别人抄不走」的原料：工艺参数、质检流程、产线视频、认证文件。课内强调把这些结构化放进页面（参数表、Answer-First、FAQ、实体词），再交给 ChatGPT / Claude 等工具扩写骨架，由懂产品的人审改——这正是 E-E-A-T 与 GEO「可被引用」的前提。不懂营销不是死穴；缺的是把一手资料变成可检索、可提取页面的 SOP。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "GEO 三阶段「可读化 / 可提取化 / 可调用化」分别指什么？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "这是把独立站改造成「AI 愿意读、抓得准、答得出」的三层目标。可读化：对爬虫与模型友好——清晰 H1/H2、扁平结构、死链与 Canonical 干净、内链面包屑完整。可提取化：降低抽取成本——Answer-First 结论前置、产品参数表格化、实体词锚定、FAQ 成块、必要时补 Schema JSON-LD。可调用化：让 ChatGPT / Perplexity / Google AI Overviews 及国内主流 AI 在合成答案时优先采信你的标准答案库。SEO 仍是 GEO 的基础：AI 要引用你，前提是先抓到你、信任你。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "这门课适合谁？不适合谁？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "适合工厂型老板、贸易公司 / 资深 SOHO、被 AI 推着走但缺闭环的转型者，以及已有站但没收录 / 没排名 / 没询盘的团队。不适合：要代运营的人、想学亚马逊 / 阿里国际站平台运营的人、只买流量不做内容的人、期望一个月见效的人。"
+      }
+    }
+  ]
+}

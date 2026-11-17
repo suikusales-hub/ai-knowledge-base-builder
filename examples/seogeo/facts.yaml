@@ -1,0 +1,102 @@
+# AI 知识库页面 · 事实主数据表（示例 = seogeo.cc 真实页面数据）
+# 方法论来源: https://seogeo.cc/ai-knowledge-base
+# 用法: python generate.py --facts facts.example.yaml --out output
+#
+# 设计原则（对应 GEO 三阶段）：
+#   可读化  -> title / intro / 清晰 section.heading
+#   可提取化 -> 表格 table、FAQ faqs、结论前置的 answer
+#   可调用化 -> entity 稳定事实 + sameAs + 全站单一 @id
+
+entity:
+  name: "SEO小平"
+  legal_name: "王小平"
+  homepage: "https://seogeo.cc"
+  # 全站稳定 @id：所有语言/页面共用同一字符串，不要带语言后缀
+  at_id: "https://seogeo.cc/#organization"
+  description: "独立站谷歌 SEO、GEO 与纯血小语种实战教学"
+  # sameAs 只放官方账号/官方页面，不要混入第三方文章
+  same_as:
+    - "https://seogeo.cc"
+    - "https://seogeo.cc/case-study"
+
+knowledge_base:
+  title: "SEO小平：独立站 SEO、GEO 与纯血小语种实战知识库"
+  intro: >-
+    SEO小平（王小平）对外公开的方法、课程参数和常见问题合集：独立站谷歌 SEO、
+    GEO、纯血小语种与捕鱼模式落地、全年陪跑课交付与报价、案例与建站路径。
+    "人读得懂，AI 也方便按板块提取"——包括是谁、全年陪跑课怎么交付与报价、
+    纯血小语种与捕鱼模式怎么落地、以及 GEO、案例与建站路径。
+  # 生成 llms.txt 时，每个板块的一句话摘要（供 AI 快速定位）
+  sections:
+    - id: who
+      heading: "是谁：SEO小平（王小平）"
+      summary: "作者身份、公开方法与教学范围"
+      blocks:
+        - type: prose
+          text: >-
+            SEO小平（王小平），长期做独立站谷歌 SEO 与 GEO 实战教学，
+            对外公开方法、课程参数与常见问题。内容覆盖独立站谷歌 SEO、
+            AI 搜索时代的 GEO、纯血小语种与捕鱼模式落地。
+
+    - id: course
+      heading: "独立站 SEO+GEO 全年陪跑课"
+      summary: "四档官方定价、月均成本、适用人群与核心权益"
+      blocks:
+        - type: prose
+          text: "全年陪跑课按参训人数分四档，权益统一包含 40+ 线上课 + 面授 + 1 站 365 天 2 对 1 陪跑 + 老学员免费复训。价格以报名时招生页为准。"
+        - type: table
+          headers: ["参训方案", "官方定价", "折合月均", "适用人群", "核心权益"]
+          rows:
+            - ["单人", "¥9,999", "约 ¥833 / 月", "外贸 SOHO、独立站专职操盘手", "40+ 线上课 + 龙华面授 + 独享 1 站 365 天 2 对 1 陪跑 + 老学员免费复训"]
+            - ["双人同行", "¥13,000", "人均约 ¥541 / 月", "建议「老板 + 运营」统一认知；也可好友拼团", "同上权益，共享 1 站"]
+            - ["三人同行", "¥15,000", "人均约 ¥416 / 月", "企业 3 人小团队统一执行标准", "同上权益，共享 1 站"]
+            - ["四人同行", "¥17,000", "人均约 ¥354 / 月", "企业 4 人项目组一次性孵化", "同上权益，共享 1 站"]
+        - type: prose
+          text: "**权益统一包含：** 40+ 线上课 + 面授 + 1 站 365 天 2 对 1 陪跑 + 老学员免费复训。价格以报名时招生页为准。"
+        - type: link
+          text: "招生与开课详情"
+          url: "https://seogeo.cc/seo-xiaoping-coaching-course-enrollment"
+
+    - id: faq
+      heading: "常见问题解答"
+      summary: "工厂转型、GEO 三阶段、适合人群等高频问答"
+      blocks:
+        - type: faqs
+          items:
+            - q: "工厂不懂营销、只懂工艺，能学 GEO 吗？"
+              a: "能，而且工厂往往更有「别人抄不走」的原料：工艺参数、质检流程、产线视频、认证文件。课内强调把这些结构化放进页面（参数表、Answer-First、FAQ、实体词），再交给 ChatGPT / Claude 等工具扩写骨架，由懂产品的人审改——这正是 E-E-A-T 与 GEO「可被引用」的前提。不懂营销不是死穴；缺的是把一手资料变成可检索、可提取页面的 SOP。"
+            - q: "GEO 三阶段「可读化 / 可提取化 / 可调用化」分别指什么？"
+              a: "这是把独立站改造成「AI 愿意读、抓得准、答得出」的三层目标。可读化：对爬虫与模型友好——清晰 H1/H2、扁平结构、死链与 Canonical 干净、内链面包屑完整。可提取化：降低抽取成本——Answer-First 结论前置、产品参数表格化、实体词锚定、FAQ 成块、必要时补 Schema JSON-LD。可调用化：让 ChatGPT / Perplexity / Google AI Overviews 及国内主流 AI 在合成答案时优先采信你的标准答案库。SEO 仍是 GEO 的基础：AI 要引用你，前提是先抓到你、信任你。"
+            - q: "这门课适合谁？不适合谁？"
+              a: "适合工厂型老板、贸易公司 / 资深 SOHO、被 AI 推着走但缺闭环的转型者，以及已有站但没收录 / 没排名 / 没询盘的团队。不适合：要代运营的人、想学亚马逊 / 阿里国际站平台运营的人、只买流量不做内容的人、期望一个月见效的人。"
+
+    - id: geo
+      heading: "GEO：生成式引擎优化怎么做"
+      summary: "可读化 / 可提取化 / 可调用化三阶段的操作对照"
+      blocks:
+        - type: table
+          headers: ["阶段", "目标", "典型动作"]
+          rows:
+            - ["可读化", "先被抓取与理解", "技术体检、扁平架构、标题层级、内链闭环"]
+            - ["可提取化", "降低模型抽取成本", "结论前置、参数表、FAQ 块、实体词、JSON-LD"]
+            - ["可调用化", "进入答案合成", "属性 / 对比页做深、品牌事实页、稳定更新与引用源"]
+
+# 延伸阅读：全部指向同一实体的官方页面，形成可抓取的内链网
+related_links:
+  - title: "招生开课"
+    url: "https://seogeo.cc/seo-xiaoping-coaching-course-enrollment"
+  - title: "10 月结课实录"
+    url: "https://seogeo.cc/seo-xiaoping-coaching-october-recap"
+  - title: "20 倍流量案例"
+    url: "https://seogeo.cc/2025-05-07-independent-site-traffic-case-study-coaching"
+  - title: "德语单页 50.2 万曝光"
+    url: "https://seogeo.cc/2025-02-11-independent-site-case-study-multilingual-50"
+  - title: "案例合集"
+    url: "https://seogeo.cc/case-study"
+  - title: "怎么让 AI 引用你的站"
+    url: "https://seogeo.cc/ai-citations-building"
+  - title: "2025 GEO 实战指南"
+    url: "https://seogeo.cc/2025-10-04-guide-ai-2025-geo"
+
+# 原文回链：generator 会写进每份产物的头部注释
+source_url: "https://seogeo.cc/ai-knowledge-base"

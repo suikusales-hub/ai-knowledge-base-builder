@@ -1,0 +1,13 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://seogeo.cc/#organization",
+  "name": "SEO小平",
+  "alternateName": "王小平",
+  "url": "https://seogeo.cc",
+  "description": "独立站谷歌 SEO、GEO 与纯血小语种实战教学",
+  "sameAs": [
+    "https://seogeo.cc",
+    "https://seogeo.cc/case-study"
+  ]
+}
